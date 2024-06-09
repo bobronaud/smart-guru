@@ -1,6 +1,8 @@
 import Button from '@/components/ui/button/Button';
 import styles from './UiKit.module.scss';
 import Clock from '@/assets/icons/clock.svg';
+import Catalog from '@/assets/icons/catalog.svg';
+import MenuItem from '@/components/ui/menuItem/MenuItem';
 
 const UiKit = () => {
 	return (
@@ -102,6 +104,18 @@ const UiKit = () => {
 				</div>
 			</div>
 			<hr />
+			<div /*Div с MenuItem*/>
+				<div className={styles.container}>
+					<MenuItem>
+						<Catalog />
+						Записи
+					</MenuItem>
+					<MenuItem active>
+						<Catalog />
+						Записи
+					</MenuItem>
+				</div>
+			</div>
 		</div>
 	);
 };
