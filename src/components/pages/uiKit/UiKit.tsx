@@ -116,6 +116,7 @@ const UiKit = () => {
 					</MenuItem>
 				</div>
 			</div>
+			<hr />
 		</div>
 	);
 };

@@ -31,13 +31,16 @@ $border-color-hover: #ededed;
 
 .children {
 	display: flex;
-	gap: 10px;
+	gap: 5px;
 	align-items: center;
 	justify-content: start;
 }
 
 .menuItem {
+	display: inline-block;
+
 	width: $width-desktop;
+	max-width: 100%;
 	height: $heigth-desktop;
 	padding: $padding-desktop;
 
