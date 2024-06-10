@@ -1,8 +1,8 @@
-import Button from '@/components/ui/button/Button';
-import styles from './UiKit.module.scss';
-import Clock from '@/assets/icons/clock.svg';
 import Catalog from '@/assets/icons/catalog.svg';
+import Clock from '@/assets/icons/clock.svg';
+import Button from '@/components/ui/button/Button';
 import MenuItem from '@/components/ui/menuItem/MenuItem';
+import styles from './UiKit.module.scss';
 
 const UiKit = () => {
 	return (

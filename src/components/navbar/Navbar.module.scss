@@ -68,5 +68,10 @@ $border-color-separate: #ededed;
 @media (width <= 360px) {
 	.container {
 		height: 74px;
+		border: none;
+	}
+
+	p {
+		display: none;
 	}
 }

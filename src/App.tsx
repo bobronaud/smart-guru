@@ -1,15 +1,9 @@
-import { useState } from 'react';
-import Button from './components/ui/button/Button';
+import Navbar from './components/navbar/Navbar';
 
 const App = () => {
-	const [count, setCount] = useState(0);
-	const handleclick = () => {
-		setCount(prev => prev + 1);
-	};
 	return (
 		<div>
-			<h1>Smart-guru describers: {count}</h1>
-			<Button onClick={handleclick}>Describe</Button>
+			<Navbar />
 		</div>
 	);
 };
