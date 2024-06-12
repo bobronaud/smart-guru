@@ -37,6 +37,8 @@ $border-color-hover: #ededed;
 }
 
 .menuItem {
+	cursor: pointer;
+
 	display: inline-block;
 
 	width: $width-desktop;
