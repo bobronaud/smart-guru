@@ -18,6 +18,12 @@ $border-color-separate: #ededed;
 	gap: 50px;
 }
 
+ul {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
+
 .logo {
 	width: 260px;
 	height: 84px;
@@ -65,7 +71,7 @@ $border-color-separate: #ededed;
 	}
 }
 
-@media (width <= 360px) {
+@media (width <= 520px) {
 	.container {
 		height: 74px;
 		border: none;
