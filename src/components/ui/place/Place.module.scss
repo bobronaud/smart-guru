@@ -1,0 +1,42 @@
+$in-progress-color: #3cbf31;
+$almost-finished-color: #f7a121;
+$finished-color: #e7372c;
+
+.container {
+	display: inline-block;
+
+	height: 31px;
+	padding: 5px 10px;
+
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 20.8px;
+
+	border-radius: 5px;
+}
+
+.inProgress {
+	color: $in-progress-color;
+	border: 1px solid $in-progress-color;
+}
+
+.almostFinished {
+	color: $almost-finished-color;
+	border: 1px solid $almost-finished-color;
+}
+
+.finished {
+	color: $finished-color;
+	border: 1px solid $finished-color;
+}
+
+@media (width <= 1000px) {
+	.container {
+		height: 22px;
+		padding: 3px 8px;
+
+		font-size: 12px;
+		font-weight: 700;
+		line-height: 15.6px;
+	}
+}
