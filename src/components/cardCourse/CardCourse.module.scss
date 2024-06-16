@@ -3,34 +3,76 @@ $border-color: #ededed;
 $svg-border-color-default: #9ea5ad;
 $svg-color-active: #f7a121;
 
-%fonts-title-desktop {
-	font-size: 20px;
-	font-weight: 700;
-	line-height: 26px;
+@mixin font-title($device) {
+	@if $device == desktop {
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 26px;
+	}
+	@if $device == tablet {
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 23.4px;
+	}
+	@if $device == mobile {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 19.2px;
+	}
 }
 
-%fonts-subtitle-org-desktop {
-	font-size: 18px;
-	font-weight: 600;
-	line-height: 23.4px;
+@mixin font-subtitle-organization($device) {
+	@if $device == desktop {
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 23.4px;
+	} @else {
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 20.8px;
+	}
 }
 
-%fonts-subtitle-direction-desktop {
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 24px;
+@mixin font-subtitle-direction($device) {
+	@if $device == desktop {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 24px;
+	} @else {
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 21px;
+	}
 }
 
-%fonts-description-desktop {
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 24px;
+@mixin font-description($device) {
+	@if $device == desktop {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 24px;
+	} @else {
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 21px;
+	}
 }
 
-%fonts-info-desktop {
-	font-size: 18px;
-	font-weight: 400;
-	line-height: 23.4px;
+@mixin font-info($device) {
+	@if $device == desktop {
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 23.4px;
+	}
+	@if $device == tablet {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 24px;
+	}
+	@if $device == mobile {
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 18.2px;
+	}
 }
 
 .container {
@@ -62,7 +104,7 @@ $svg-color-active: #f7a121;
 }
 
 .title {
-	@extend %fonts-title-desktop;
+	@include font-title(desktop);
 
 	display: flex;
 	align-items: center;
@@ -70,7 +112,7 @@ $svg-color-active: #f7a121;
 
 	h3 {
 		overflow: hidden;
-		max-width: 80%;
+		max-width: 85%;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
@@ -92,16 +134,16 @@ $svg-color-active: #f7a121;
 	flex-direction: column;
 
 	h5 {
-		@extend %fonts-subtitle-org-desktop;
+		@include font-subtitle-organization(desktop);
 	}
 
 	h6 {
-		@extend %fonts-subtitle-direction-desktop;
+		@include font-subtitle-direction(desktop);
 	}
 }
 
 .description {
-	@extend %fonts-description-desktop;
+	@include font-description(desktop);
 
 	overflow: hidden;
 	display: -webkit-box;
@@ -115,7 +157,7 @@ $svg-color-active: #f7a121;
 }
 
 .info {
-	@extend %fonts-info-desktop;
+	@include font-info(desktop);
 
 	display: flex;
 	flex-direction: column;
@@ -130,4 +172,63 @@ $svg-color-active: #f7a121;
 .stars {
 	display: flex;
 	gap: 5px;
+}
+
+@media (width <= 1440px) {
+	.container {
+		width: 376px;
+	}
+
+	.title {
+		@include font-title(tablet);
+	}
+
+	.subtitle img {
+		width: 40px;
+		height: 40px;
+	}
+
+	.orgInfo {
+		h5 {
+			@include font-subtitle-organization(tablet);
+		}
+
+		h6 {
+			@include font-subtitle-direction(tablet);
+		}
+	}
+
+	.description {
+		@include font-description(tablet);
+	}
+
+	.courseImg {
+		height: 176px;
+	}
+
+	.info {
+		@include font-info(tablet);
+
+		gap: 5px;
+	}
+}
+
+@media (width <= 1000px) {
+	.container {
+		width: 470px;
+	}
+}
+
+@media (width <= 360px) {
+	.container {
+		width: 320px;
+	}
+
+	.title {
+		@include font-title(mobile);
+	}
+
+	.info {
+		@include font-info(mobile);
+	}
 }
