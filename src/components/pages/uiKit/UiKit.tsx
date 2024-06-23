@@ -1,8 +1,12 @@
 import Clock from '@/assets/icons/clock.svg';
 import Button from '@/components/ui/button/Button';
+import { useAppDispatch } from '@/hooks';
+import { openModal } from '@/store/slices/modalSlice';
 import styles from './UiKit.module.scss';
 
 const UiKit = () => {
+	const dispatch = useAppDispatch();
+
 	return (
 		<div className={styles.container}>
 			<div /*Div с кнопками. Для удобства можно свернуть*/>
@@ -104,9 +108,9 @@ const UiKit = () => {
 			<hr />
 			<div /*Div с модалками */>
 				<div className={styles.block}>
-					<Button>Выбрать роль</Button>
-					<Button>Войти</Button>
-					<Button>Регистрация</Button>
+					<Button onClick={() => dispatch(openModal('role'))}>Выбрать роль</Button>
+					<Button onClick={() => dispatch(openModal('logIn'))}>Войти</Button>
+					<Button onClick={() => dispatch(openModal('signUp'))}>Регистрация</Button>
 					<Button>Восстановить пароль</Button>
 				</div>
 				<div className={styles.block}>
