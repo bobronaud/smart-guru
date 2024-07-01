@@ -9,8 +9,13 @@ const customRules = {
 	'react/react-in-jsx-scope': 'off',
 };
 
+const ignores = ['**/node_modules/', '**/public/', '**/assets/', '**/build/'];
+
 export default [
 	{ languageOptions: { globals: globals.browser } },
+	{
+		ignores,
+	},
 	pluginJs.configs.recommended,
 	...tseslint.configs.recommended,
 	{

@@ -2,6 +2,7 @@
 /assets
 node_modules
 dist
+build
 /.vscode
 .env
 *.env

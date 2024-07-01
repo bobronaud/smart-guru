@@ -18,11 +18,22 @@ export default (env: EnvVariables) => {
 	const devServer: DevServerConfiguration = {
 		port: env.port ?? 3000,
 		open: true,
+		hot: true,
+		historyApiFallback: true,
+	};
+
+	const cssLoaderWithModules = {
+		loader: 'css-loader',
+		options: {
+			modules: {
+				localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]',
+			},
+		},
 	};
 
 	const config: Configuration = {
 		mode: env.mode,
-		entry: path.resolve(__dirname, 'src', 'index.tsx'),
+		entry: path.resolve(__dirname, 'src', 'index.ts'),
 		output: {
 			path: path.resolve(__dirname, 'build'),
 			filename: '[name].[contenthash].js',
@@ -46,8 +57,16 @@ export default (env: EnvVariables) => {
 					exclude: /node_modules/,
 				},
 				{
-					test: /\.s?css$/,
-					use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+					test: /\.(c|sa|sc)ss$/,
+					use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, cssLoaderWithModules, 'sass-loader'],
+				},
+				{
+					test: /\.(png|jpg|jpeg|gif)$/i,
+					type: 'asset/resource',
+				},
+				{
+					test: /\.svg$/i,
+					use: [{ loader: '@svgr/webpack', options: { icon: true } }],
 				},
 			],
 		},
