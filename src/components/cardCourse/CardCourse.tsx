@@ -29,8 +29,8 @@ const CardCourse = ({ data }: CardCourseProps) => {
 	};
 	return (
 		<div className={styles.container}>
-			<div className={styles.title}>
-				<h3>{name}</h3>
+			<div className={styles.header}>
+				<h3 className={styles.title}>{name}</h3>
 				<LikeSvg
 					className={isLiked ? styles.active : null}
 					onClick={handleClick}
@@ -42,8 +42,8 @@ const CardCourse = ({ data }: CardCourseProps) => {
 					alt='Логотип организации'
 				/>
 				<div className={styles.orgInfo}>
-					<h5>{organization}</h5>
-					<h6>{direction}</h6>
+					<h5 className={styles.orgName}>{organization}</h5>
+					<h6 className={styles.direction}>{direction}</h6>
 				</div>
 			</div>
 			<p className={styles.description}>{description}</p>

@@ -3,20 +3,18 @@ $border-color: #ededed;
 $svg-border-color-default: #9ea5ad;
 $svg-color-active: #f7a121;
 
-@mixin font-title($device) {
+@mixin font-header($device) {
+	font-weight: 700;
 	@if $device == desktop {
 		font-size: 20px;
-		font-weight: 700;
 		line-height: 26px;
 	}
 	@if $device == tablet {
 		font-size: 18px;
-		font-weight: 700;
 		line-height: 23.4px;
 	}
 	@if $device == mobile {
 		font-size: 16px;
-		font-weight: 700;
 		line-height: 19.2px;
 	}
 }
@@ -34,43 +32,39 @@ $svg-color-active: #f7a121;
 }
 
 @mixin font-subtitle-direction($device) {
+	font-weight: 400;
 	@if $device == desktop {
 		font-size: 16px;
-		font-weight: 400;
 		line-height: 24px;
 	} @else {
 		font-size: 14px;
-		font-weight: 400;
 		line-height: 21px;
 	}
 }
 
 @mixin font-description($device) {
+	font-weight: 400;
 	@if $device == desktop {
 		font-size: 16px;
-		font-weight: 400;
 		line-height: 24px;
 	} @else {
 		font-size: 14px;
-		font-weight: 400;
 		line-height: 21px;
 	}
 }
 
 @mixin font-info($device) {
+	font-weight: 400;
 	@if $device == desktop {
 		font-size: 18px;
-		font-weight: 400;
 		line-height: 23.4px;
 	}
 	@if $device == tablet {
 		font-size: 16px;
-		font-weight: 400;
 		line-height: 24px;
 	}
 	@if $device == mobile {
 		font-size: 14px;
-		font-weight: 400;
 		line-height: 18.2px;
 	}
 }
@@ -80,7 +74,8 @@ $svg-color-active: #f7a121;
 	flex-direction: column;
 	gap: 20px;
 
-	width: 508px;
+	width: 100%;
+	max-width: 508px;
 	padding: 20px;
 
 	color: $text-color;
@@ -103,14 +98,14 @@ $svg-color-active: #f7a121;
 	}
 }
 
-.title {
-	@include font-title(desktop);
+.header {
+	@include font-header(desktop);
 
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 
-	h3 {
+	.title {
 		overflow: hidden;
 		max-width: 85%;
 		text-overflow: ellipsis;
@@ -133,11 +128,11 @@ $svg-color-active: #f7a121;
 	display: flex;
 	flex-direction: column;
 
-	h5 {
+	.orgName {
 		@include font-subtitle-organization(desktop);
 	}
 
-	h6 {
+	.direction {
 		@include font-subtitle-direction(desktop);
 	}
 }
@@ -153,7 +148,9 @@ $svg-color-active: #f7a121;
 }
 
 .courseImg {
-	height: 233px;
+	width: 100%;
+	min-height: 100%;
+	max-height: 233px;
 }
 
 .info {
@@ -176,11 +173,11 @@ $svg-color-active: #f7a121;
 
 @media (width <= 1440px) {
 	.container {
-		width: 376px;
+		max-width: 376px;
 	}
 
-	.title {
-		@include font-title(tablet);
+	.header {
+		@include font-header(tablet);
 	}
 
 	.subtitle img {
@@ -189,11 +186,11 @@ $svg-color-active: #f7a121;
 	}
 
 	.orgInfo {
-		h5 {
+		.orgName {
 			@include font-subtitle-organization(tablet);
 		}
 
-		h6 {
+		.direction {
 			@include font-subtitle-direction(tablet);
 		}
 	}
@@ -203,7 +200,9 @@ $svg-color-active: #f7a121;
 	}
 
 	.courseImg {
-		height: 176px;
+		width: 100%;
+		min-height: 100%;
+		max-height: 176px;
 	}
 
 	.info {
@@ -215,17 +214,17 @@ $svg-color-active: #f7a121;
 
 @media (width <= 1000px) {
 	.container {
-		width: 470px;
+		max-width: 470px;
 	}
 }
 
 @media (width <= 360px) {
 	.container {
-		width: 320px;
+		max-width: 320px;
 	}
 
-	.title {
-		@include font-title(mobile);
+	.header {
+		@include font-header(mobile);
 	}
 
 	.info {
