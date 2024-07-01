@@ -81,6 +81,8 @@ $border-color-hover: #ededed;
 	}
 
 	.menuItem {
+		flex: 1;
+
 		width: $width-tablet;
 		height: $heigth-tablet;
 		padding: $padding-tablet;

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styles from './Navbar.module.scss';
 
-import useWindowWidth from '@/hooks/useWindowWidth';
 import MenuItem from '../ui/menuItem/MenuItem';
 
 import CatalogSvg from '@/assets/icons/catalog.svg';
@@ -13,9 +12,6 @@ import SignOutSvg from '@/assets/icons/signOut.svg';
 import LogoDesktop from '@/assets/logos/logoDesktop.svg';
 
 const Navbar = () => {
-	const width = useWindowWidth();
-	const isDesktop = width >= 1000;
-
 	const [active, setActive] = useState('Каталог');
 	const navButtons = [
 		{
@@ -38,50 +34,46 @@ const Navbar = () => {
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.navMenu}>
-				{isDesktop && <LogoDesktop className={styles.logo} />}
+			<div>
+				<LogoDesktop className={styles.logo} />
 				<nav>
-					<ul>
+					<ul className={styles.menuNav}>
 						{navButtons.map(({ name, svg }) => (
-							<li key={name}>
+							<li
+								className={styles.menuItem}
+								key={name}
+							>
 								<MenuItem
 									onClick={() => setActive(name)}
 									active={active === name}
 								>
 									{svg}
-									<p>{name}</p>
+									<p className={styles.buttonText}>{name}</p>
 								</MenuItem>
 							</li>
 						))}
 					</ul>
 				</nav>
 			</div>
-			{isDesktop && (
-				<div className={styles.bottomMenu}>
-					<nav>
-						<ul>
-							<li>
-								<MenuItem
-									onClick={() => setActive('Настройки')}
-									active={active === 'Настройки'}
-								>
-									<SettingsSvg />
-									<p>Настройки</p>
-								</MenuItem>
-							</li>
-							<li>
-								<MenuItem
-									onClick={() => setActive('Выход')}
-									active={active === 'Выход'}
-								>
-									<SignOutSvg />
-									<p>Выход</p>
-								</MenuItem>
-							</li>
-						</ul>
-					</nav>
+			<nav className={styles.menuExit}>
+				<div>
+					<MenuItem
+						onClick={() => setActive('Настройки')}
+						active={active === 'Настройки'}
+					>
+						<SettingsSvg />
+						<p>Настройки</p>
+					</MenuItem>
+
+					<MenuItem
+						onClick={() => setActive('Выход')}
+						active={active === 'Выход'}
+					>
+						<SignOutSvg />
+						<p>Выход</p>
+					</MenuItem>
 				</div>
-			)}
+			</nav>
 		</div>
 	);
 };
